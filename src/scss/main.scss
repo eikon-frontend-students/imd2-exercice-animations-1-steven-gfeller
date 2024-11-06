@@ -65,6 +65,17 @@ video {
   border: 5px solid var(--white);
   border-bottom-color: var(--red);
   border-radius: 50%;
+  animation: changeRotation 2s linear infinite;
+}
+
+@keyframes changeRotation {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
 }
 
 .button {
@@ -76,6 +87,17 @@ video {
   border-radius: 5px;
   color: var(--white);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: changeScale 0.5s ease-out infinite alternate;
+}
+
+@keyframes changeScale {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 1.1;
+  }
 }
 
 .background {
@@ -83,6 +105,17 @@ video {
   height: 200px;
   background-image: linear-gradient(45deg, var(--yellow), var(--light-blue));
   background-size: 200% 200%;
+  animation: changecolor 2s linear infinite alternate;
+}
+
+@keyframes changecolor {
+  from {
+    background-position: top;
+  }
+
+  to {
+    background-position: left;
+  }
 }
 
 .submit {
@@ -98,6 +131,19 @@ video {
 
 .submit-plane {
   width: 26px;
+  animation: fly 2s ease-out infinite;
+}
+
+@keyframes fly {
+  from {
+    transform: translate(0px, 0px);
+    opacity: 100%;
+  }
+
+  to {
+    transform: translate(50px, -50px);
+    opacity: 0%;
+  }
 }
 
 .pong {
@@ -114,10 +160,67 @@ video {
   width: 10px;
   height: 10px;
   background: var(--black);
+  animation: x-y 2s linear infinite alternate;
 }
 
-.pong-paddle {
+/*.pong-paddle {
   width: 10px;
   height: 80px;
   background: var(--black);
+  animation: y 2s ease-in infinite alternate ;
 }
+  */
+
+.pong .pong-paddle:nth-child(1) {
+  width: 10px;
+  height: 80px;
+  background: var(--black);
+  animation: left-paddle-move 2s ease-in-out infinite alternate;
+}
+
+.pong .pong-paddle:nth-child(3) {
+  width: 10px;
+  height: 80px;
+  background: var(--black);
+  animation: right-paddle-move 2s ease-in-out infinite alternate;
+}
+
+@keyframes left-paddle-move {
+  from {
+    transform: translate(0px, 50px);
+  }
+  to {
+    transform: translate(0px, -100px);
+  }
+}
+
+@keyframes right-paddle-move {
+  from {
+    transform: translate(0px, -100px);
+  }
+  to {
+    transform: translate(0px, 100px);
+  }
+}
+
+@keyframes x-y {
+  from {
+    transform: translate(270px, 100px);
+  }
+
+  to {
+    transform: translate(-270px, -100px);
+  }
+}
+/*
+
+@keyframes y {
+  from {
+    transform: translate(0px, 100px);
+  }
+
+  to {
+    transform: translate(0px, -100px);
+  }
+}
+*/
